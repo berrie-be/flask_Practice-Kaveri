@@ -7,11 +7,18 @@
     install:
       runs-on: ubuntu-latest
       steps:
-        - name: checkout code
+        - name: Checkout Code
           uses: actions/checkout@v4
         - name: Install Dependencies
           run: |
             pip install -r requirements.txt
+
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Test Before Deployment
+          run: |
+            pytest
         # - name: build docker image
         #   run: |
         #     docker build -t test:01 ./backend
