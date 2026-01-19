@@ -4,7 +4,7 @@
       branches: ["staging"]
 
   jobs:
-    Python Setup:
+    python_setup:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout Code
