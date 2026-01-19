@@ -6,6 +6,9 @@
   jobs:
     python_setup:
       runs-on: ubuntu-latest
+      env:
+        MONGO_URI: ${{ vars.MONGO_URI }}
+        SECRET_KEY: ${{ vars.SECRET_KEY }}
       steps:
         - name: Checkout Code
           uses: actions/checkout@v4
