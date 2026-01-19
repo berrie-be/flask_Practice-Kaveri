@@ -1,1 +1,22 @@
+  name: Flask App CI/CD Pipeline
+  on:
+    push:
+      branches: ["staging"]
+
+  jobs:
+    install:
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+        - name: Install Dependencies
+          run: |
+            pip install -r requirements.txt
+        # - name: build docker image
+        #   run: |
+        #     docker build -t test:01 ./backend
+        # - name: Test the image
+        #   run: |
+        #     docker run -itd test:01 bash
+        
 
