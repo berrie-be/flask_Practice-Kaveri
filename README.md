@@ -14,3 +14,14 @@ Requirements:
    - Inside the directory, create a YAML file to define the workflow.  
 <img width="961" height="599" alt="image" src="https://github.com/user-attachments/assets/0ab44963-54b3-44e2-9723-1967708816e1" />  
 
+3. Workflow Steps:  
+     - Define a workflow that performs the following jobs:  
+     - Install Dependencies: Install all necessary dependencies for the Python application using pip.    
+
+     - Run Tests: Execute the test suite using a framework like pytest.  
+
+     - Build: If tests pass, prepare the application for deployment.  
+
+     - Deploy to Staging: Deploy the application to a staging environment when changes are pushed to the staging branch.  
+
+     - Deploy to Production: Deploy the application to production when a release is tagged.  
