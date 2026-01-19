@@ -17,6 +17,7 @@
 
     test:
       runs-on: ubuntu-latest
+      needs: python_setup
       steps:
         - name: Test Before Deployment
           run: |
