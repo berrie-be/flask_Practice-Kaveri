@@ -14,14 +14,17 @@
         - name: Install Dependencies
           run: |
             pip install -r requirements.txt
-
-    test:
-      runs-on: ubuntu-latest
-      needs: python_setup
-      steps:
         - name: Test Before Deployment
           run: |
             pytest
+
+    # test:
+    #   runs-on: ubuntu-latest
+    #   needs: python_setup
+    #   steps:
+    #     - name: Test Before Deployment
+    #       run: |
+    #         pytest
         # - name: build docker image
         #   run: |
         #     docker build -t test:01 ./backend
