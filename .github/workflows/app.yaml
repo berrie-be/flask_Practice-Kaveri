@@ -25,6 +25,9 @@
         - name: Test Before Deployment
           run: |
             pytest
+        - name: Build the Image
+          run: |
+            docker build -t test:01 .
 
     # test:
     #   runs-on: ubuntu-latest
