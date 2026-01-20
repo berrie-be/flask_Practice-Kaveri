@@ -31,7 +31,12 @@
         - name: Deploy to Staging Branch
           run: |
             docker run -itd -p 5000:5000 test:01
-            curl http://localhost:5000/health
+        - name: Wait for Flask
+          run: |
+            sleep 5
+        - name: Check health
+         run: |
+           curl http://localhost:5000/health
 
     # test:
     #   runs-on: ubuntu-latest
