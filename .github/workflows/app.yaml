@@ -31,6 +31,7 @@
         - name: Deploy to Staging Branch
           run: |
             docker run -itd test:01 bash
+            curl http://localhost:5000/health
 
     # test:
     #   runs-on: ubuntu-latest
