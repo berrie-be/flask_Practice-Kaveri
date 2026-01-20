@@ -28,6 +28,9 @@
         - name: Build the Image
           run: |
             docker build -t test:01 .
+        - name: Deploy to Staging Branch
+          run: |
+            docker run -itd test:01 bash
 
     # test:
     #   runs-on: ubuntu-latest
