@@ -35,8 +35,8 @@
           run: |
             sleep 5
         - name: Check health
-         run: |
-           curl http://localhost:5000/health
+          run: |
+            curl http://localhost:5000/health
 
     # test:
     #   runs-on: ubuntu-latest
