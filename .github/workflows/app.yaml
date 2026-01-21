@@ -6,6 +6,7 @@
   jobs:
     python_setup:
       runs-on: ubuntu-latest
+      environment: all
       services:
         mongo:
           image: mongo:6
