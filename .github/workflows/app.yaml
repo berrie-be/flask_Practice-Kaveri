@@ -23,14 +23,20 @@
           run: |
             pip install -r requirements.txt
         - name: Test Before Deployment
+          env:
+            MONGO_URI: mongodb://localhost:27017/test_student_db
+            SECRET_KEY: test-secret-key
           run: |
             pytest
         - name: Build the Image
           run: |
             docker build -t test:01 .
         - name: Deploy to Staging Branch
+          env:
+            MONGO_URI: ${{vars.MONGO_URI}}
+            SECRET_KEY: ${{vars.SECRET_KEY}}
           run: |
-            docker run -itd -p 5000:5000 -e MONGO_URI="mongodb+srv://kaveriagarwalaherovired:kaveri@cluster1.odntcuv.mongodb.net/?appName=Cluster0" -e SECRET_KEY="${{ vars.SECRET_KEY }}" test:01
+            docker run -itd -p 5000:5000 test:01
         - name: Wait for Flask
           run: |
             sleep 5
