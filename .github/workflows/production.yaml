@@ -1,0 +1,43 @@
+  name: Flask App CI/CD Pipeline Production
+  on:
+    release:
+      types: published
+      
+  jobs:
+    deploy_production:
+      runs-on: ubuntu-latest
+      environment: production
+      services:
+        mongo:
+          image: mongo:6
+          ports:
+            - 27017:27017
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4
+        - name: Python Setup
+          uses: actions/setup-python@v4
+        - name: Install Dependencies
+          run: |
+            pip install -r requirements.txt
+        - name: Build the Image
+          run: |
+            docker build -t prod:01 .
+        - name: Deploy to Staging Branch
+          env:
+            MONGO_URI: ${{vars.MONGO_URI}}
+            SECRET_KEY: ${{secrets.SECRET_KEY}}
+          run: |
+            docker run -itd -e MONGO_URI="$MONGO_URI" -e SECRET_KEY="$SECRET_KEY" -p 5000:5000 prod:01
+        - name: Wait for Flask
+          run: |
+            sleep 10
+        - name: Check health
+          run: |
+            curl http://localhost:5000/
+        - name: Show container logs on failure
+          if: failure()
+          run: docker logs $(docker ps -q --filter ancestor=prod:01)
+
+        
+
