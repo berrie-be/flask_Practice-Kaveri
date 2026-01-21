@@ -4,7 +4,7 @@
       branches: ["staging"]
 
   jobs:
-    python_setup:
+    deploy_staging:
       runs-on: ubuntu-latest
       environment: all
       services:
@@ -12,9 +12,6 @@
           image: mongo:6
           ports:
             - 27017:27017
-      # env:
-      #   MONGO_URI: mongodb://localhost:27017/test_student_db
-      #   SECRET_KEY: test-secret-key
       steps:
         - name: Checkout Code
           uses: actions/checkout@v4
