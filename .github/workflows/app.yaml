@@ -1,0 +1,61 @@
+  name: Flask App CI/CD Pipeline
+  on:
+    push:
+      branches: ["staging"]
+
+  jobs:
+    deploy_staging:
+      runs-on: ubuntu-latest
+      environment: all
+      services:
+        mongo:
+          image: mongo:6
+          ports:
+            - 27017:27017
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4
+        - name: Python Setup
+          uses: actions/setup-python@v4
+        - name: Install Dependencies
+          run: |
+            pip install -r requirements.txt
+        - name: Test Before Deployment
+          env:
+            MONGO_URI: mongodb://localhost:27017/test_student_db
+            SECRET_KEY: test-secret-key
+          run: |
+            pytest
+        - name: Build the Image
+          run: |
+            docker build -t test:01 .
+        - name: Deploy to Staging Branch
+          env:
+            MONGO_URI: ${{vars.MONGO_URI}}
+            SECRET_KEY: ${{vars.SECRET_KEY}}
+          run: |
+            docker run -itd -e MONGO_URI="$MONGO_URI" -e SECRET_KEY="$SECRET_KEY" -p 5000:5000 test:01
+        - name: Wait for Flask
+          run: |
+            sleep 10
+        - name: Check health
+          run: |
+            curl http://localhost:5000/
+        - name: Show container logs on failure
+          if: failure()
+          run: docker logs $(docker ps -q --filter ancestor=test:01)
+    # test:
+    #   runs-on: ubuntu-latest
+    #   needs: python_setup
+    #   steps:
+    #     - name: Test Before Deployment
+    #       run: |
+    #         pytest
+        # - name: build docker image
+        #   run: |
+        #     docker build -t test:01 ./backend
+        # - name: Test the image
+        #   run: |
+        #     docker run -itd test:01 bash
+        
+
