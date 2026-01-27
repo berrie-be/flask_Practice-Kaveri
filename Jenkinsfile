@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+    environment {
+        MONGO_URI = credentials('MONGO_URI')
+        SECRET_KEY = credentials('SECRET_KEY')
+    }
+    stages {
+        stage('Build') {
+            when {
+                anyOf {
+                    branch 'main'
+                    branch 'staging'
+                }
+            }
+            steps {
+                sh '''
+                pip install -r requirements.txt
+                '''
+            }
+          
+        }
+        stage('Test') {
+            when {
+                branch 'staging'
+            }
+            steps {
+                sh '''
+                pytest
+                '''
+            }
+          
+        }
+        stage('Deploy') {
+            when {
+                anyOf {
+                    branch 'main'
+                    branch 'staging
+                }
+            }
+            steps {
+                sh '''
+                docker build -t test:01 .
+                docker run -itd -e MONGO_URI="$MONGO_URI" -e SECRET_KEY="$SECRET_KEY" -p 5000:5000 test:01
+                sleep 5
+                curl http://localhost:5000/
+                '''
+            }
+          
+        }
+    }
+}
