@@ -15,7 +15,15 @@
    - Fork the provided Python web application repository on GitHub (provide a link to a sample Python web application repository).    
      <img width="297" height="72" alt="image" src="https://github.com/user-attachments/assets/bd48b017-4f2e-4912-911a-4b66d7175d46" />    
    - Clone the forked repository into your Jenkins server.  
-     <img width="621" height="116" alt="image" src="https://github.com/user-attachments/assets/f545f647-a1bb-4a44-8840-f3cb42a888b8" />    
+     <img width="621" height="116" alt="image" src="https://github.com/user-attachments/assets/f545f647-a1bb-4a44-8840-f3cb42a888b8" />
+
+### 3. Jenkins Pipeline:  
+   - Create a Jenkinsfile in the root of your Python application repository.  
+   - Define a pipeline with the following stages:  
+   - Build: Install dependencies using pip.  
+   - Test: Run unit tests using a testing framework like pytest.  
+   - Deploy: If tests pass, deploy the application to a staging environment.  
+     
 
 
 # 2. GitHub Actions CI/CD Pipeline Flask App  
