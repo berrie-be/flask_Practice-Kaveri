@@ -1,3 +1,23 @@
+# 1. Jenkins CI CD pipeline for flask application  
+## Objective: Set up a Jenkins pipeline that automates the testing and deployment of a simple Python web application.   
+
+### Requirements:    
+### 1. Setup:    
+   - Install Jenkins on a virtual machine or use a cloud-based Jenkins service.  
+   - Configure Jenkins with Python and any necessary libraries.  
+     <img width="613" height="92" alt="image" src="https://github.com/user-attachments/assets/3f4b8670-835d-42c8-8dad-8ea32e78901a" />  
+     <img width="660" height="420" alt="image" src="https://github.com/user-attachments/assets/42859373-2e7c-4a56-b205-e10bc2971e58" />  
+     <img width="533" height="60" alt="image" src="https://github.com/user-attachments/assets/dd0cea93-3fac-491c-b37a-861ea38861e8" />  
+     <img width="1410" height="343" alt="image" src="https://github.com/user-attachments/assets/0027952f-66d0-4398-ba7e-21c70d54c252" />  
+     <img width="432" height="72" alt="image" src="https://github.com/user-attachments/assets/7f379e43-eedb-46b4-9124-ced366384f72" />  
+     
+### 2. Source Code:  
+   - Fork the provided Python web application repository on GitHub (provide a link to a sample Python web application repository).    
+     <img width="297" height="72" alt="image" src="https://github.com/user-attachments/assets/bd48b017-4f2e-4912-911a-4b66d7175d46" />    
+   - Clone the forked repository into your Jenkins server.  
+     <img width="621" height="116" alt="image" src="https://github.com/user-attachments/assets/f545f647-a1bb-4a44-8840-f3cb42a888b8" />    
+
+
 # 2. GitHub Actions CI/CD Pipeline Flask App  
 ## Objective: Implement a CI/CD workflow using GitHub Actions for a Python application.   
 
