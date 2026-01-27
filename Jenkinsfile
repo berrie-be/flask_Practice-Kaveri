@@ -34,7 +34,7 @@ pipeline {
             when {
                 anyOf {
                     branch 'main'
-                    branch 'staging
+                    branch 'staging'
                 }
             }
             steps {
