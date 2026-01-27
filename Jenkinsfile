@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    trigger {
+        githubPush()
+    }
     environment {
         MONGO_URI = credentials('MONGO_URI')
         SECRET_KEY = credentials('SECRET_KEY')
