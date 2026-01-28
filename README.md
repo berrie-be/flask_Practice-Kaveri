@@ -20,12 +20,39 @@
 ### 3. Jenkins Pipeline:  
    - Create a Jenkinsfile in the root of your Python application repository.  
    - Define a pipeline with the following stages:  
-   - Build: Install dependencies using pip.  
-   - Test: Run unit tests using a testing framework like pytest.  
+   - Build: Install dependencies using pip.    
+   - Test: Run unit tests using a testing framework like pytest.      
    - Deploy: If tests pass, deploy the application to a staging environment.  
+     <img width="654" height="642" alt="image" src="https://github.com/user-attachments/assets/fb308765-0bbb-4133-9bb9-7d8bf5311ac6" />  
+
+### 4. Triggers:  
+   - Configure the pipeline to trigger a new build whenever changes are pushed to the main branch of the repository.  
+     <img width="989" height="691" alt="Screenshot 2026-01-28 at 6 24 23 PM" src="https://github.com/user-attachments/assets/003375a9-3639-4cd6-b49d-c2899f83b667" />  
+     <img width="845" height="627" alt="image" src="https://github.com/user-attachments/assets/e6a5846a-b47b-4f47-8367-1d0b4a76bf32" />  
+
+### 5. Notifications:  
+   - Set up a notification system to alert via email when the build process fails or succeeds.  
+
+     I am using AWS SNS for the email setup  
+     Created a SNS topic with Email service  
+     <img width="1227" height="378" alt="image" src="https://github.com/user-attachments/assets/1d673dc7-d214-48fa-9fce-5722d9605b42" />  
      
+     Created a IAM role to attach to the EC2 instance where jenkins is running and added the SNSFull access to the role.  
+     <img width="1219" height="480" alt="image" src="https://github.com/user-attachments/assets/ba790a83-075a-410b-a495-151d3a2f640e" />  
 
-
+     Added the below block to the Jenkinsfile  
+     <img width="556" height="284" alt="image" src="https://github.com/user-attachments/assets/2a3340ce-4456-448e-80c0-7cb09a5c7dfd" />  
+  
+     When the build succeeded I received the below email  
+     <img width="1125" height="271" alt="image" src="https://github.com/user-attachments/assets/c408d98c-22c3-4161-b2b2-717ea8a517e6" />  
+     <img width="487" height="158" alt="image" src="https://github.com/user-attachments/assets/5523eb75-068d-4203-9ea6-bd3724e9cd2d" />  
+       
+  
+     When the build failed I received the below email    
+     <img width="1121" height="265" alt="image" src="https://github.com/user-attachments/assets/e48b68e3-247a-4d89-86c9-94c6b258bc06" />  
+     <img width="391" height="169" alt="image" src="https://github.com/user-attachments/assets/bd78c200-a7c4-48e7-8c3d-242d406da993" />  
+       
+    
 # 2. GitHub Actions CI/CD Pipeline Flask App  
 ## Objective: Implement a CI/CD workflow using GitHub Actions for a Python application.   
 
