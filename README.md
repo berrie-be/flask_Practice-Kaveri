@@ -30,9 +30,24 @@
      <img width="989" height="691" alt="Screenshot 2026-01-28 at 6 24 23 PM" src="https://github.com/user-attachments/assets/003375a9-3639-4cd6-b49d-c2899f83b667" />  
      <img width="845" height="627" alt="image" src="https://github.com/user-attachments/assets/e6a5846a-b47b-4f47-8367-1d0b4a76bf32" />  
 
-### 5. Notifications:
-   - Set up a notification system to alert via email when the build process fails or succeeds.
+### 5. Notifications:  
+   - Set up a notification system to alert via email when the build process fails or succeeds.  
+
+     I am using AWS SNS for the email setup  
+     Created a SNS topic with Email service  
+     <img width="1227" height="378" alt="image" src="https://github.com/user-attachments/assets/1d673dc7-d214-48fa-9fce-5722d9605b42" />  
      
+     Created a IAM role to attach to the EC2 instance where jenkins is running and added the SNSFull access to the role.  
+     <img width="1219" height="480" alt="image" src="https://github.com/user-attachments/assets/ba790a83-075a-410b-a495-151d3a2f640e" />  
+
+     Added the below block to the Jenkinsfile  
+     <img width="563" height="272" alt="image" src="https://github.com/user-attachments/assets/d7fb55be-d95b-4a68-ace6-7424f6c7d4f0" />  
+
+     When the build failed I received the below email  
+     
+
+
+
 
 # 2. GitHub Actions CI/CD Pipeline Flask App  
 ## Objective: Implement a CI/CD workflow using GitHub Actions for a Python application.   
