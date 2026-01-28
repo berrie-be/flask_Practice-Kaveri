@@ -23,8 +23,15 @@
    - Build: Install dependencies using pip.  
    - Test: Run unit tests using a testing framework like pytest.  
    - Deploy: If tests pass, deploy the application to a staging environment.  
-     
 
+
+
+### 4. Triggers:
+   - Configure the pipeline to trigger a new build whenever changes are pushed to the main branch of the repository.
+
+### 5. Notifications:
+   - Set up a notification system to alert via email when the build process fails or succeeds.
+     
 
 # 2. GitHub Actions CI/CD Pipeline Flask App  
 ## Objective: Implement a CI/CD workflow using GitHub Actions for a Python application.   
