@@ -1,16 +1,14 @@
 pipeline {
     agent any
+    triggers {
+        githubPush()
+    }
     environment {
         MONGO_URI = credentials('MONGO_URI')
         SECRET_KEY = credentials('SECRET_KEY')
     }
     stages {
         stage('Build') {
-            when {
-                anyOf {
-                    branch 'main'
-                    branch 'staging'
-                }
             }
             steps {
                 sh '''
@@ -22,9 +20,6 @@ pipeline {
           
         }
         stage('Test') {
-            when {
-                branch 'staging'
-            }
             steps {
                 sh '''
                 . venv/bin/activate
@@ -35,10 +30,6 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                anyOf {
-                    branch 'main'
-                    branch 'staging'
-                }
             }
             steps {
                 sh '''
