@@ -45,7 +45,7 @@ pipeline {
         aws sns publish \
           --region us-west-1 \
           --topic-arn arn:aws:sns:us-west-1:975050024946:kaveri-jenkins-build-notifications \
-          --message "✅ SUCCESS: Job ${env.JOB_NAME} #${env.BUILD_NUMBER} | Branch: ${env.BRANCH_NAME}"
+          --message "✅ SUCCESS: Job ${env.JOB_NAME} #${env.BUILD_NUMBER}"
         """
     }
 
@@ -54,7 +54,7 @@ pipeline {
         aws sns publish \
           --region us-west-1 \
           --topic-arn arn:aws:sns:us-west-1:975050024946:kaveri-jenkins-build-notifications \
-          --message "❌ FAILURE: Job ${env.JOB_NAME} #${env.BUILD_NUMBER} | Branch: ${env.BRANCH_NAME}"
+          --message "❌ FAILURE: Job ${env.JOB_NAME} #${env.BUILD_NUMBER}"
         """
     }
 }
