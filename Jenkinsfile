@@ -1,15 +1,11 @@
 pipeline {
     agent any
-    triggers {
-        githubPush()
-    }
     environment {
         MONGO_URI = credentials('MONGO_URI')
         SECRET_KEY = credentials('SECRET_KEY')
     }
     stages {
         stage('Build') {
-            }
             steps {
                 sh '''
                 python3 -m venv venv
@@ -29,8 +25,6 @@ pipeline {
           
         }
         stage('Deploy') {
-            when {
-            }
             steps {
                 sh '''
                 docker build -t test:01 .
