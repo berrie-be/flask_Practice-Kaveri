@@ -9,6 +9,12 @@ pipeline {
     }
     stages {
         stage('Build') {
+            when {
+                anyOf {
+                    branch 'main'
+                    branch 'staging'
+                }
+            }
             steps {
                 sh '''
                 python3 -m venv venv
@@ -19,6 +25,9 @@ pipeline {
           
         }
         stage('Test') {
+            when {
+                branch 'staging'
+            }
             steps {
                 sh '''
                 . venv/bin/activate
@@ -28,6 +37,12 @@ pipeline {
           
         }
         stage('Deploy') {
+            when {
+                anyOf {
+                    branch 'main'
+                    branch 'staging'
+                }
+            }            
             steps {
                 sh '''
                 docker build -t test:01 .
