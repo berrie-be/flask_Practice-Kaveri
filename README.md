@@ -20,14 +20,15 @@
 ### 3. Jenkins Pipeline:  
    - Create a Jenkinsfile in the root of your Python application repository.  
    - Define a pipeline with the following stages:  
-   - Build: Install dependencies using pip.  
-   - Test: Run unit tests using a testing framework like pytest.  
+   - Build: Install dependencies using pip.    
+   - Test: Run unit tests using a testing framework like pytest.      
    - Deploy: If tests pass, deploy the application to a staging environment.  
+     <img width="654" height="642" alt="image" src="https://github.com/user-attachments/assets/fb308765-0bbb-4133-9bb9-7d8bf5311ac6" />  
 
-
-
-### 4. Triggers:
-   - Configure the pipeline to trigger a new build whenever changes are pushed to the main branch of the repository.
+### 4. Triggers:  
+   - Configure the pipeline to trigger a new build whenever changes are pushed to the main branch of the repository.  
+     <img width="989" height="691" alt="Screenshot 2026-01-28 at 6 24 23 PM" src="https://github.com/user-attachments/assets/003375a9-3639-4cd6-b49d-c2899f83b667" />  
+     <img width="845" height="627" alt="image" src="https://github.com/user-attachments/assets/e6a5846a-b47b-4f47-8367-1d0b4a76bf32" />  
 
 ### 5. Notifications:
    - Set up a notification system to alert via email when the build process fails or succeeds.
