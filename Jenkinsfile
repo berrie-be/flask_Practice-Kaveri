@@ -39,4 +39,23 @@ pipeline {
           
         }
     }
+    post {
+    success {
+        sh """
+        aws sns publish \
+          --region us-west-1 \
+          --topic-arn arn:aws:sns:us-west-1:975050024946:jenkins-build-notifications \
+          --message "✅ SUCCESS: Job ${env.JOB_NAME} #${env.BUILD_NUMBER} | Branch: ${env.BRANCH_NAME}"
+        """
+    }
+
+    failure {
+        sh """
+        aws sns publish \
+          --region us-west-1 \
+          --topic-arn arn:aws:sns:us-west-1:975050024946:jenkins-build-notifications \
+          --message "❌ FAILURE: Job ${env.JOB_NAME} #${env.BUILD_NUMBER} | Branch: ${env.BRANCH_NAME}"
+        """
+    }
+}
 }
