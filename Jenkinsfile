@@ -9,11 +9,6 @@ pipeline {
     }
     stages {
         stage('Build') {
-            when {
-                anyOf {
-                    branch 'main'
-                    branch 'staging'
-                }
             }
             steps {
                 sh '''
@@ -25,9 +20,6 @@ pipeline {
           
         }
         stage('Test') {
-            when {
-                branch 'staging'
-            }
             steps {
                 sh '''
                 . venv/bin/activate
@@ -38,10 +30,6 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                anyOf {
-                    branch 'main'
-                    branch 'staging'
-                }
             }
             steps {
                 sh '''
