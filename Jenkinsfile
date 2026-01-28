@@ -6,6 +6,7 @@ pipeline {
     environment {
         MONGO_URI = credentials('MONGO_URI')
         SECRET_KEY = credentials('SECRET_KEY')
+        HOST_PORT = "${env.BRANCH_NAME == 'staging' ? '5000' : '5001'}"
     }
     stages {
         stage('Build') {
@@ -31,7 +32,7 @@ pipeline {
             steps {
                 sh '''
                 docker build -t test:01 .
-                docker run -itd -e MONGO_URI="$MONGO_URI" -e SECRET_KEY="$SECRET_KEY" -p 5000:5000 test:01
+                docker run -itd -e MONGO_URI="$MONGO_URI" -e SECRET_KEY="$SECRET_KEY" -p $HOST_PORT:5000 test:01
                 sleep 5
                 curl http://localhost:5000/
                 '''
