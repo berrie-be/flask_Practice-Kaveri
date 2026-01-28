@@ -29,8 +29,6 @@ pipeline {
           
         }
         stage('Deploy') {
-            when {
-            }
             steps {
                 sh '''
                 docker build -t test:01 .
