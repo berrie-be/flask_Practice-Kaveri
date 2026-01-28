@@ -48,13 +48,11 @@
      <img width="487" height="158" alt="image" src="https://github.com/user-attachments/assets/5523eb75-068d-4203-9ea6-bd3724e9cd2d" />  
        
   
-     When the build failed I received the below email  
-     
-     
-
-
-
-
+     When the build failed I received the below email    
+     <img width="1121" height="265" alt="image" src="https://github.com/user-attachments/assets/e48b68e3-247a-4d89-86c9-94c6b258bc06" />  
+     <img width="391" height="169" alt="image" src="https://github.com/user-attachments/assets/bd78c200-a7c4-48e7-8c3d-242d406da993" />  
+       
+    
 # 2. GitHub Actions CI/CD Pipeline Flask App  
 ## Objective: Implement a CI/CD workflow using GitHub Actions for a Python application.   
 
