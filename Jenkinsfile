@@ -9,7 +9,6 @@ pipeline {
     }
     stages {
         stage('Build') {
-            }
             steps {
                 sh '''
                 python3 -m venv venv
