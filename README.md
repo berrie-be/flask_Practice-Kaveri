@@ -41,9 +41,15 @@
      <img width="1219" height="480" alt="image" src="https://github.com/user-attachments/assets/ba790a83-075a-410b-a495-151d3a2f640e" />  
 
      Added the below block to the Jenkinsfile  
-     <img width="563" height="272" alt="image" src="https://github.com/user-attachments/assets/d7fb55be-d95b-4a68-ace6-7424f6c7d4f0" />  
+     <img width="563" height="272" alt="image" src="https://github.com/user-attachments/assets/d7fb55be-d95b-4a68-ace6-7424f6c7d4f0" />    
 
+     When the build succeeded I received the below email  
+     <img width="1125" height="271" alt="image" src="https://github.com/user-attachments/assets/c408d98c-22c3-4161-b2b2-717ea8a517e6" />  
+     <img width="487" height="158" alt="image" src="https://github.com/user-attachments/assets/5523eb75-068d-4203-9ea6-bd3724e9cd2d" />  
+       
+  
      When the build failed I received the below email  
+     
      
 
 
